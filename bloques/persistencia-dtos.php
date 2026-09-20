@@ -43,11 +43,11 @@
 
             <div class="block-flow-container">
                 <div class="block-flow-item"><strong>1. Relaciones</strong><br>ORM & Mapping</div>
-                <div class="block-flow-separator">➔</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
                 <div class="block-flow-item"><strong>2. Consultas</strong><br>JPQL & SQL</div>
-                <div class="block-flow-separator">➔</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
                 <div class="block-flow-item"><strong>3. Transferencia</strong><br>DTOs & Records</div>
-                <div class="block-flow-separator">➔</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
                 <div class="block-flow-item"><strong>4. Calidad</strong><br>JUnit & Mockito</div>
             </div>
 
@@ -56,8 +56,9 @@
                 <h3>Temas del bloque</h3>
               </div>
               <div class="block-topic-cluster-grid">
-                <a class="block-topic-card" href="<?php echo $base_url; ?>persistencia-dtos/asociaciones-consultas"><span>9</span> Asociaciones y consultas</a>
-                <a class="block-topic-card" href="<?php echo $base_url; ?>persistencia-dtos/dtos-repositorios"><span>10</span> DTOs y repositorios</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>persistencia-dtos/asociaciones-consultas"><span>11</span> Asociaciones y consultas</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>persistencia-dtos/dtos-repositorios"><span>12</span> DTOs y repositorios</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>persistencia-dtos/mapstruct-specifications"><span>13</span> MapStruct & Specifications</a>
               </div>
             </div>
 

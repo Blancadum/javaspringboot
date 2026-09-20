@@ -38,14 +38,14 @@
             </div>
 
             <!-- FLUJO DE PROGRESIÓN TÉCNICA -->
-            <div class="block-flow-container" style="display: flex; align-items: center; justify-content: space-between; margin: 25px 0; padding: 15px; background: var(--color-canvas-subtle); border-radius: 10px; border: 1px dashed var(--color-border-muted); font-size: 13px; text-align: center;">
-                <div style="flex: 1;"><strong>1. Blindaje</strong><br>Validación Bean</div>
-                <div style="padding: 0 10px; color: var(--color-fg-subtle);">➔</div>
-                <div style="flex: 1;"><strong>2. Control</strong><br>Errores Globales</div>
-                <div style="padding: 0 10px; color: var(--color-fg-subtle);">➔</div>
-                <div style="flex: 1;"><strong>3. Trazas</strong><br>SLF4J & Logs</div>
-                <div style="padding: 0 10px; color: var(--color-fg-subtle);">➔</div>
-                <div style="flex: 1;"><strong>4. Entornos</strong><br>Profiles & Ops</div>
+            <div class="block-flow-container">
+                <div class="block-flow-item"><strong>1. Blindaje</strong><br>Validación Bean</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+                <div class="block-flow-item"><strong>2. Control</strong><br>Errores Globales</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+                <div class="block-flow-item"><strong>3. Trazas</strong><br>SLF4J & Logs</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+                <div class="block-flow-item"><strong>4. Entornos</strong><br>Profiles & Ops</div>
             </div>
 
             <div class="block-topic-cluster">
@@ -53,8 +53,9 @@
                 <h3>Temas del bloque</h3>
               </div>
               <div class="block-topic-cluster-grid">
-                <a class="block-topic-card" href="<?php echo $base_url; ?>calidad-ops/validaciones-errores"><span>11</span> Validaciones y errores</a>
-                <a class="block-topic-card" href="<?php echo $base_url; ?>calidad-ops/logs-perfiles-swagger"><span>12</span> Logs, perfiles y Swagger</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>calidad-ops/validaciones-errores"><span>14</span> Validaciones y errores</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>calidad-ops/logs-perfiles-swagger"><span>15</span> Logs, perfiles y Swagger</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>calidad-ops/actuator-observabilidad"><span>16</span> Actuator & Observabilidad</a>
               </div>
             </div>
 

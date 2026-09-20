@@ -43,11 +43,11 @@
             <!-- FLUJO DE PROGRESIÓN TÉCNICA -->
             <div class="block-flow-container">
                 <div class="block-flow-item"><strong>1. Web</strong><br>HTTP & MVC</div>
-                <div class="block-flow-separator">➔</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
                 <div class="block-flow-item"><strong>2. Datos</strong><br>JSON & Jackson</div>
-                <div class="block-flow-separator">➔</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
                 <div class="block-flow-item"><strong>3. Tooling</strong><br>Maven & Lombok</div>
-                <div class="block-flow-separator">➔</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
                 <div class="block-flow-item"><strong>4. Corazón</strong><br>IoC & AOP</div>
             </div>
 
@@ -60,6 +60,7 @@
                 <a class="block-topic-card" href="<?php echo $base_url; ?>fundamentos/json-jackson"><span>2</span> JSON y Jackson</a>
                 <a class="block-topic-card" href="<?php echo $base_url; ?>fundamentos/maven-lombok"><span>3</span> Maven y Lombok</a>
                 <a class="block-topic-card" href="<?php echo $base_url; ?>fundamentos/core-spring-ioc"><span>4</span> Core Spring (IoC)</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>fundamentos/eventos-aop"><span>5</span> Eventos y AOP</a>
               </div>
             </div>
 

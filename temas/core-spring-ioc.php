@@ -51,6 +51,9 @@
 
           <h4 id="tema-4-ioc">4.1 Inversión de Control (IoC) y Contrato de Interfaces</h4>
           <p>
+            Spring Boot potencia los pilares fundamentales de la <strong>Programación Orientada a Objetos (POO)</strong> (Abstracción, Encapsulamiento, Polimorfismo y Herencia). A través de la <strong>Inversión de Control (IoC)</strong>, el desarrollo en <strong>POO</strong> se desacopla de la instanciación manual de objetos con el operador <code>new</code>, delegando el control del ciclo de vida y las dependencias al contenedor <code>ApplicationContext</code>.
+          </p>
+          <p>
             La abstracción mediante interfaces desacopla a los consumidores de las implementaciones concretas, permitiendo sustituir componentes y mockear en tests sin esfuerzo.
           </p>
 

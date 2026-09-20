@@ -38,14 +38,14 @@
               </div>
             </div>
 
-            <div class="block-flow-container" style="display: flex; align-items: center; justify-content: space-between; margin: 25px 0; padding: 15px; background: var(--color-canvas-subtle); border-radius: 10px; border: 1px dashed var(--color-border-muted); font-size: 13px; text-align: center;">
-                <div style="flex: 1;"><strong>1. Diseño</strong><br>SOLID & Capas</div>
-                <div style="padding: 0 10px; color: var(--color-fg-subtle);">➔</div>
-                <div style="flex: 1;"><strong>2. Exposición</strong><br>REST & MVC</div>
-                <div style="padding: 0 10px; color: var(--color-fg-subtle);">➔</div>
-                <div style="flex: 1;"><strong>3. Lógica</strong><br>Servicios & Tx</div>
-                <div style="padding: 0 10px; color: var(--color-fg-subtle);">➔</div>
-                <div style="flex: 1;"><strong>4. Datos</strong><br>JPA & ORM</div>
+            <div class="block-flow-container">
+                <div class="block-flow-item"><strong>1. Diseño</strong><br>SOLID & Capas</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+                <div class="block-flow-item"><strong>2. Exposición</strong><br>REST & MVC</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+                <div class="block-flow-item"><strong>3. Lógica</strong><br>Servicios & Tx</div>
+                <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+                <div class="block-flow-item"><strong>4. Datos</strong><br>JPA & ORM</div>
             </div>
 
             <div class="block-topic-cluster">
@@ -53,10 +53,11 @@
                 <h3>Temas del bloque</h3>
               </div>
               <div class="block-topic-cluster-grid">
-                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/solid-capas"><span>5</span> SOLID y capas</a>
-                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/rest-responseentity"><span>6</span> REST y ResponseEntity</a>
-                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/servicios-di"><span>7</span> Servicios y DI</a>
-                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/hibernate-orm"><span>8</span> Hibernate y ORM</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/solid-capas"><span>6</span> SOLID y capas</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/rest-responseentity"><span>7</span> REST y ResponseEntity</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/servicios-di"><span>8</span> Servicios y DI</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/excepciones-problemdetail"><span>9</span> Excepciones & RFC 7807</a>
+                <a class="block-topic-card" href="<?php echo $base_url; ?>core-spring-boot/hibernate-orm"><span>10</span> Hibernate y ORM</a>
               </div>
             </div>
 
@@ -79,7 +80,7 @@
                     </ul>
                 </div>
                 <div>
-                    <strong style="color: accent;">Lógica & Datos</strong>
+                    <strong style="color: var(--color-accent);">Lógica & Datos</strong>
                     <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
                         <li><code class="kw">@Service</code> <span style="color: var(--color-fg-subtle); font-style: italic;">(Lógica negocio)</span></li>
                         <li><code class="kw">@Transactional</code> <span style="color: var(--color-fg-subtle); font-style: italic;">(ACID/Rollback)</span></li>

@@ -3,25 +3,31 @@
   'use strict';
 
   // ── 1. Theme Management (Dark / Light) ──────────────────────────────────
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.dataset.theme = theme;
+    if (document.body) {
+      document.body.setAttribute('data-theme', theme);
+      document.body.dataset.theme = theme;
+    }
+    localStorage.setItem('gh_study_theme', theme);
+    updateThemeButtons(theme);
+  };
+
   const initTheme = () => {
-    // Forzamos 'dark' como predeterminado si no hay preferencia guardada explícitamente
     const savedTheme = localStorage.getItem('gh_study_theme') || 'dark';
-    
-    // Aplicamos inmediatamente para evitar el "flash" de modo claro
-    document.documentElement.dataset.theme = savedTheme;
-    updateThemeButtons(savedTheme);
+    applyTheme(savedTheme);
 
     document.addEventListener('click', (e) => {
       const target = e.target.closest('.theme-toggle-trigger, #theme-toggle-btn, #floating-theme-btn');
       if (target) {
-        const current = document.documentElement.dataset.theme || 'dark';
+        e.preventDefault();
+        const current = document.documentElement.getAttribute('data-theme') || document.documentElement.dataset.theme || 'dark';
         const next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem('gh_study_theme', next);
-        updateThemeButtons(next);
+        applyTheme(next);
       }
     });
-  }
+  };
 
   const updateThemeButtons = (theme) => {
     const isLight = (theme === 'light');
@@ -29,10 +35,15 @@
 
     const buttons = document.querySelectorAll('.theme-toggle-trigger, #theme-toggle-btn, #floating-theme-btn');
     buttons.forEach(btn => {
-      btn.innerHTML = label;
+      const span = btn.querySelector('span');
+      if (span) {
+        span.textContent = label;
+      } else {
+        btn.textContent = label;
+      }
       btn.setAttribute('title', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo diurno (claro)');
     });
-  }
+  };
 
 
   // ── 2. Dynamic Topic TOC (Right Drawer Flyout - Per Topic) ───────────────
@@ -418,8 +429,16 @@
       let selectedIndex = -1;
       let currentResults = [];
 
+    function removeDiacritics(str) {
+      return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/ñ/g, 'n');
+    }
+
     function normalizeQuery(q) {
-      return q.replace(/\.{2,}/g, ' ').replace(/\s+/g, ' ').trim();
+      return removeDiacritics(q).replace(/\.{2,}/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
     function escapeRegExp(value) {
@@ -427,54 +446,97 @@
     }
 
     function highlightMatch(text, query) {
-      const clean = normalizeQuery(query);
+      const clean = (query || '').trim();
       if (!clean) return text;
 
       const regex = new RegExp(`(${escapeRegExp(clean)})`, 'gi');
       return text.replace(regex, '<mark>$1</mark>');
     }
 
-    function search(query) {
-      const clean = normalizeQuery(query).toLowerCase();
-      if (!clean) return [];
+    const SPANISH_STOP_WORDS = new Set([
+      'a', 'ante', 'bajo', 'cabe', 'con', 'contra', 'de', 'desde', 'durante',
+      'en', 'entre', 'hacia', 'hasta', 'mediante', 'para', 'por', 'segun',
+      'sin', 'so', 'sobre', 'tras', 'versus', 'via', 'el', 'la', 'los', 'las',
+      'un', 'una', 'unos', 'unas', 'y', 'o', 'u', 'del', 'al', 'lo'
+    ]);
 
-      const words = clean.split(' ').filter(Boolean);
+    function search(query) {
+      const trimmed = (query || '').trim();
+      if (!trimmed) return [];
+
+      const clean = normalizeQuery(trimmed);
+      const isOnlyAtSymbol = (trimmed === '@');
+      const cleanWithoutAt = clean.replace(/^@+/, '');
+
+      // Desindexar preposiciones y stop-words cuando la búsqueda es solo una preposición
+      if (!isOnlyAtSymbol && SPANISH_STOP_WORDS.has(cleanWithoutAt)) {
+        return [];
+      }
+
+      const words = cleanWithoutAt.split(' ').filter(w => Boolean(w) && !SPANISH_STOP_WORDS.has(w));
+      if (!words.length && !isOnlyAtSymbol) return [];
 
       const scored = [];
       for (const item of SEARCH_DATABASE) {
-        const termLower = item.term.toLowerCase();
-        const descLower = item.desc.toLowerCase();
-        const topicLower = item.topic.toLowerCase();
-        const aliasesLower = (item.aliases || []).join(' ').toLowerCase();
-        const fullText = `${termLower} ${aliasesLower} ${topicLower} ${descLower}`;
+        const termNorm = removeDiacritics(item.term || '');
+        const termNormNoAt = termNorm.replace(/^@+/, '');
+        const badgeNorm = removeDiacritics(item.badge || '');
+        const aliasesNorm = (item.aliases || []).map(removeDiacritics).join(' ');
+        const topicNorm = removeDiacritics(item.topic || '');
+        const descNorm = removeDiacritics(item.desc || '');
 
-        // Todas las palabras escritas deben estar presentes
-        const allWordsMatch = words.every(w => fullText.includes(w));
-        if (!allWordsMatch) continue;
+        if (isOnlyAtSymbol) {
+          if (termNorm.startsWith('@') || item.badge === '@' || (item.badgeClass && item.badgeClass.includes('badge-annotation'))) {
+            scored.push({ item, score: 100 });
+          }
+          continue;
+        }
+
+        if (!cleanWithoutAt) continue;
+
+        const titleAndKeys = `${termNorm} ${termNormNoAt} ${badgeNorm} ${aliasesNorm} ${topicNorm}`;
+        const titleAndKeysMatch = words.every(w => titleAndKeys.includes(w));
+        const descMatch = words.every(w => descNorm.includes(w));
+
+        // Para consultas cortas (<= 4 caracteres como 'dto', 'jwt', 'json', 'jpa'), exigir coincidencia en título/clave
+        if (cleanWithoutAt.length <= 4) {
+          if (!titleAndKeysMatch) continue;
+        } else {
+          if (!titleAndKeysMatch && !descMatch) continue;
+        }
 
         let score = 0;
-        if (termLower === clean) score += 200;
-        else if (termLower.startsWith(clean)) score += 120;
-        else if (termLower.includes(clean)) score += 80;
-        else if (aliasesLower.includes(clean)) score += 60;
-        else if (topicLower.includes(clean)) score += 40;
-        else score += 20;
-
-        if (termLower.startsWith(words[0])) score += 30;
+        if (termNorm === clean || termNormNoAt === cleanWithoutAt) score += 300;
+        else if (termNorm.startsWith(clean) || termNormNoAt.startsWith(cleanWithoutAt)) score += 200;
+        else if (termNorm.includes(clean) || termNormNoAt.includes(cleanWithoutAt)) score += 150;
+        else if (aliasesNorm.includes(cleanWithoutAt)) score += 100;
+        else if (topicNorm.includes(cleanWithoutAt)) score += 50;
+        else if (descMatch) score += 10;
 
         scored.push({ item, score });
       }
 
       scored.sort((a, b) => b.score - a.score);
-      return scored.slice(0, 8).map(s => s.item);
+
+      // Si hay coincidencias directas en título o alias (score >= 50), descartar apariciones puramente secundarias en la descripción (score < 50)
+      const hasTitleMatches = scored.some(s => s.score >= 50);
+      const filteredResults = hasTitleMatches ? scored.filter(s => s.score >= 50) : scored;
+
+      return filteredResults.slice(0, 8).map(s => s.item);
     }
 
     function renderDropdown(results, query) {
       currentResults = results;
       selectedIndex = -1;
 
+      const cleanQuery = normalizeQuery(query);
+      if (!cleanQuery) {
+        closeDropdown();
+        return;
+      }
+
       if (!results.length) {
-        dropdown.innerHTML = `<div class="search-empty-message">No se encontraron apartados para "<strong>${escapeHtml(query)}</strong>"</div>`;
+        dropdown.innerHTML = `<div class="search-empty-message">No se encontraron apartados para "<strong>${escapeHtml(cleanQuery)}</strong>"</div>`;
         dropdown.style.display = 'block';
         searchInput.setAttribute('aria-expanded', 'true');
         return;
@@ -634,9 +696,11 @@
 
     searchInput.addEventListener('focus', () => {
       const val = searchInput.value;
-      if (!val?.trim())  {
+      if (val?.trim())  {
         const results = search(val);
-        renderDropdown(results, val);
+        renderDropdown(results,val);
+      } else {
+        closeDropdown();
       }
     });
 

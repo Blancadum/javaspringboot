@@ -36,7 +36,9 @@
   RewriteRule ^ruta/?$ ruta.php [L,QSA]
   RewriteRule ^caso-estudio/?$ caso-estudio.php [L,QSA]
   RewriteRule ^filosofia/?$ filosofia.php [L,QSA]
+  RewriteRule ^primeros-pasos/?$ primeros-pasos.php [L,QSA]
   RewriteRule ^recursos/?$ recursos.php [L,QSA]
+  RewriteRule ^proyectos/?$ proyectos.php [L,QSA]
 
   # 4. Fallback si el archivo o directorio real existe
   RewriteCond %{REQUEST_FILENAME} -f [OR]

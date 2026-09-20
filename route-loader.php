@@ -15,29 +15,37 @@ $aliasMap = [
   'ruta' => 'ruta.php',
   'caso-estudio' => 'caso-estudio.php',
   'filosofia' => 'filosofia.php',
+  'primeros-pasos' => 'primeros-pasos.php',
   'recursos' => 'recursos.php',
+  'proyectos' => 'proyectos.php',
   'index' => 'index.php',
 
   'fundamentos/arquitectura-web-http' => 'temas/arquitectura-web-http.php',
   'fundamentos/json-jackson' => 'temas/json-jackson.php',
   'fundamentos/maven-lombok' => 'temas/maven-lombok.php',
   'fundamentos/core-spring-ioc' => 'temas/core-spring-ioc.php',
+  'fundamentos/eventos-aop' => 'temas/eventos-aop.php',
 
   'core-spring-boot/solid-capas' => 'temas/solid-capas.php',
   'core-spring-boot/rest-responseentity' => 'temas/rest-responseentity.php',
   'core-spring-boot/servicios-di' => 'temas/servicios-di.php',
   'core-spring-boot/hibernate-orm' => 'temas/hibernate-orm.php',
+  'core-spring-boot/excepciones-problemdetail' => 'temas/excepciones-problemdetail.php',
 
   'persistencia-dtos/asociaciones-consultas' => 'temas/asociaciones-consultas.php',
   'persistencia-dtos/dtos-repositorios' => 'temas/dtos-repositorios.php',
+  'persistencia-dtos/mapstruct-specifications' => 'temas/mapstruct-specifications.php',
 
   'calidad-ops/validaciones-errores' => 'temas/validaciones-errores.php',
   'calidad-ops/logs-perfiles-swagger' => 'temas/logs-perfiles-swagger.php',
+  'calidad-ops/actuator-observabilidad' => 'temas/actuator-observabilidad.php',
 
   'testing/junit5-mockito' => 'temas/junit5-mockito.php',
   'testing/spring-boot-test' => 'temas/spring-boot-test.php',
+  'testing/testcontainers-wiremock' => 'temas/testcontainers-wiremock.php',
 
   'seguridad-docker/jwt-docker' => 'temas/jwt-docker.php',
+  'seguridad-docker/oauth2-security' => 'temas/oauth2-security.php',
 ];
 
 $target = $aliasMap[$relativeDir] ?? null;

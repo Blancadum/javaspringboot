@@ -37,11 +37,11 @@
 
         <div class="block-flow-container">
             <div class="block-flow-item"><strong>1. Pirámide</strong><br>Unitarios & Integración</div>
-            <div class="block-flow-separator">➔</div>
+            <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
             <div class="block-flow-item"><strong>2. Aislamiento</strong><br>JUnit & Mockito</div>
-            <div class="block-flow-separator">➔</div>
+            <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
             <div class="block-flow-item"><strong>3. Verificación</strong><br>when() & verify()</div>
-            <div class="block-flow-separator">➔</div>
+            <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
             <div class="block-flow-item"><strong>4. Web</strong><br>MockMvc & Spring Test</div>
         </div>
 
@@ -50,8 +50,9 @@
             <h3>Temas del bloque</h3>
           </div>
           <div class="block-topic-cluster-grid">
-            <a class="block-topic-card" href="<?php echo $base_url; ?>testing/junit5-mockito"><span>13</span> JUnit 5 y Mockito</a>
-            <a class="block-topic-card" href="<?php echo $base_url; ?>testing/spring-boot-test"><span>14</span> Spring Boot Test</a>
+            <a class="block-topic-card" href="<?php echo $base_url; ?>testing/junit5-mockito"><span>17</span> JUnit 5 y Mockito</a>
+            <a class="block-topic-card" href="<?php echo $base_url; ?>testing/spring-boot-test"><span>18</span> Spring Boot Test</a>
+            <a class="block-topic-card" href="<?php echo $base_url; ?>testing/testcontainers-wiremock"><span>19</span> Testcontainers & WireMock</a>
           </div>
         </div>
 

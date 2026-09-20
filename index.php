@@ -8,17 +8,8 @@
           <section id="inicio" class="study-section">
             <h1>Java con Spring Boot</h1>
 
-            <div class="badge-row">
-              <span class="gh-badge primary">Java 17 / 21 LTS</span>
-              <span class="gh-badge primary">Spring Boot 3.x</span>
-              <span class="gh-badge success">15 Temas Técnicos</span>
-              <span class="gh-badge success">6 Bloques Temáticos</span>
-              <span class="gh-badge">Desarrollo Backend</span>
-              <span class="gh-badge">Arquitectura 3 Capas & Hexagonal</span>
-            </div>
-
             <p>
-              Bienvenido al manual técnico y cuaderno de estudio interactivo estructurado en 6 bloques temáticos y 15 temas de profundización técnica.
+              Bienvenido al manual técnico y cuaderno de estudio interactivo estructurado en 6 bloques temáticos y 21 temas de profundización técnica.
               Este recurso consolida todos los conceptos teóricos, discusiones de diseño, fragmentos de código ejecutable y pruebas tipo test con estándares de desarrollo empresarial en Java y Spring Boot.
             </p>
 
@@ -39,7 +30,7 @@
               </div>
 
               <div class="glossary-list resource-glossary-list">
-                <div class="glossary-item" data-term="bean inversion control spring">
+                <div class="glossary-item" data-term="bean inversion control spring ioc container">
                   <button class="glossary-trigger" type="button" aria-expanded="false">
                     <span>Bean</span>
                     <span class="glossary-toggle-indicator">+</span>
@@ -52,7 +43,7 @@ public class LibroService {}</code>
                   </div>
                 </div>
 
-                <div class="glossary-item" data-term="dto data transfer object">
+                <div class="glossary-item" data-term="dto data transfer object record model">
                   <button class="glossary-trigger" type="button" aria-expanded="false">
                     <span>DTO</span>
                     <span class="glossary-toggle-indicator">+</span>
@@ -64,7 +55,7 @@ public class LibroService {}</code>
                   </div>
                 </div>
 
-                <div class="glossary-item" data-term="inversion de control dependencia">
+                <div class="glossary-item" data-term="inversion control ioc dependencia injection inyeccion">
                   <button class="glossary-trigger" type="button" aria-expanded="false">
                     <span>Inversión de Control</span>
                     <span class="glossary-toggle-indicator">+</span>
@@ -77,7 +68,7 @@ public LibroService(LibroRepository repo) { this.repo = repo; }</code>
                   </div>
                 </div>
 
-                <div class="glossary-item" data-term="transaccion atomicidad rollback">
+                <div class="glossary-item" data-term="transaccion atomicidad rollback transactional">
                   <button class="glossary-trigger" type="button" aria-expanded="false">
                     <span>Transacción</span>
                     <span class="glossary-toggle-indicator">+</span>
@@ -90,7 +81,7 @@ public void reservarLibro() { ... }</code>
                   </div>
                 </div>
 
-                <div class="glossary-item" data-term="jwt token seguridad autenticacion">
+                <div class="glossary-item" data-term="jwt token seguridad autenticacion bearer auth">
                   <button class="glossary-trigger" type="button" aria-expanded="false">
                     <span>JWT</span>
                     <span class="glossary-toggle-indicator">+</span>
@@ -102,7 +93,7 @@ public void reservarLibro() { ... }</code>
                   </div>
                 </div>
 
-                <div class="glossary-item" data-term="api rest http">
+                <div class="glossary-item" data-term="api rest http endpoint controller">
                   <button class="glossary-trigger" type="button" aria-expanded="false">
                     <span>API REST</span>
                     <span class="glossary-toggle-indicator">+</span>
@@ -110,6 +101,32 @@ public void reservarLibro() { ... }</code>
                   <div class="glossary-content" hidden>
                     <p>Una <strong>API REST</strong> expone recursos a través de URLs y verbos HTTP. Es la base para que frontends, móviles o servicios externos consuman la aplicación.</p>
                     <code class="kw">GET /api/libros/1</code>
+                    <a href="<?php echo $base_url; ?>core-spring-boot#fase-2" class="glossary-topic-link">Ver tema relacionado</a>
+                  </div>
+                </div>
+
+                <div class="glossary-item" data-term="jpa orm entidad hibernate database">
+                  <button class="glossary-trigger" type="button" aria-expanded="false">
+                    <span>JPA / ORM</span>
+                    <span class="glossary-toggle-indicator">+</span>
+                  </button>
+                  <div class="glossary-content" hidden>
+                    <p>La <strong>persistencia ORM</strong> mapea clases Java a tablas de base de datos. Permite trabajar con objetos y dejar la traducción SQL en manos del framework.</p>
+                    <code class="kw">@Entity
+public class Libro { ... }</code>
+                    <a href="<?php echo $base_url; ?>persistencia-dtos#fase-3" class="glossary-topic-link">Ver tema relacionado</a>
+                  </div>
+                </div>
+
+                <div class="glossary-item" data-term="autoconfiguracion spring boot starter configuration">
+                  <button class="glossary-trigger" type="button" aria-expanded="false">
+                    <span>Autoconfiguración</span>
+                    <span class="glossary-toggle-indicator">+</span>
+                  </button>
+                  <div class="glossary-content" hidden>
+                    <p>Spring Boot detecta dependencias y configura automáticamente los beans necesarios para que la aplicación arranque con pocas líneas de configuración.</p>
+                    <code class="kw">@SpringBootApplication
+public class App {}</code>
                     <a href="<?php echo $base_url; ?>core-spring-boot#fase-2" class="glossary-topic-link">Ver tema relacionado</a>
                   </div>
                 </div>

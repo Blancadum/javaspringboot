@@ -43,13 +43,13 @@
         </div>
 
         <div class="block-flow-container">
-            <div class="flow-step"><strong>1. Seguridad</strong><br>JWT & RBAC</div>
-            <div class="flow-arrow">➔</div>
-            <div class="flow-step"><strong>2. Empaquetado</strong><br>Docker Multi-stage</div>
-            <div class="flow-arrow">➔</div>
-            <div class="flow-step"><strong>3. Orquestación</strong><br>Docker Compose</div>
-            <div class="flow-arrow">➔</div>
-            <div class="flow-step"><strong>4. Escalabilidad</strong><br>Kafka Events</div>
+            <div class="block-flow-item"><strong>1. Seguridad</strong><br>JWT & RBAC</div>
+            <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+            <div class="block-flow-item"><strong>2. Empaquetado</strong><br>Docker Multi-stage</div>
+            <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+            <div class="block-flow-item"><strong>3. Orquestación</strong><br>Docker Compose</div>
+            <div class="block-flow-separator"><span class="flow-arrow-horiz">➔</span><span class="flow-arrow-vert">⬇</span></div>
+            <div class="block-flow-item"><strong>4. Escalabilidad</strong><br>Kafka Events</div>
         </div>
 
         <div class="block-topic-cluster">
@@ -57,7 +57,8 @@
             <h3>Temas del bloque</h3>
           </div>
           <div class="block-topic-cluster-grid">
-            <a class="block-topic-card" href="<?php echo $base_url; ?>seguridad-docker/jwt-docker"><span>15</span> JWT y Docker</a>
+            <a class="block-topic-card" href="<?php echo $base_url; ?>seguridad-docker/jwt-docker"><span>20</span> JWT y Docker</a>
+            <a class="block-topic-card" href="<?php echo $base_url; ?>seguridad-docker/oauth2-security"><span>21</span> OAuth2 & Security 6</a>
           </div>
         </div>
 
