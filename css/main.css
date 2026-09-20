@@ -1603,14 +1603,46 @@ quiz-opt {
 .readme-figure {
   flex: 0 0 320px;
   width: 320px;
-  max-width: 42%;
-  margin: 0;
+  max-width: 100%;
+  margin: 12px 0;
   padding: 10px;
   background: var(--color-canvas-subtle);
   border: 1px solid var(--color-border-default);
   border-radius: 12px;
   float: none;
+  box-sizing: border-box;
 }
+
+.readme-figure.full-width,
+.block-summary-figure.full-width,
+figure.full-width {
+  flex: 1 1 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+.readme-figure.full-width svg,
+.block-summary-figure.full-width svg,
+figure.full-width svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* SVG Diagram Dark Mode Theme Adjustments */
+[data-theme="dark"] .readme-figure svg .bg { fill: var(--color-canvas-subtle); stroke: var(--color-border-default); }
+[data-theme="dark"] .readme-figure svg .header-title { fill: var(--color-fg-default); }
+[data-theme="dark"] .readme-figure svg .header-desc { fill: var(--color-fg-muted); }
+[data-theme="dark"] .readme-figure svg .card-bg { fill: var(--color-canvas-default); stroke: var(--color-border-default); }
+[data-theme="dark"] .readme-figure svg .card-header-bg { fill: var(--color-canvas-subtle); stroke: var(--color-border-default); }
+[data-theme="dark"] .readme-figure svg .card-title { fill: #58a6ff; }
+[data-theme="dark"] .readme-figure svg .code-txt { fill: var(--color-fg-default); }
+[data-theme="dark"] .readme-figure svg .stack-box-bg { fill: var(--color-canvas-default); stroke: #f85149; }
+[data-theme="dark"] .readme-figure svg .stack-frame { fill: var(--color-canvas-subtle); stroke: var(--color-border-default); }
+[data-theme="dark"] .readme-figure svg .stack-frame-txt { fill: var(--color-fg-default); }
 
 .block-intro-layout > .block-intro-content,
 .block-intro-layout > .block-intro-figure,
