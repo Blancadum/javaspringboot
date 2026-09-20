@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 530" width="1040" height="530">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; stroke: #d0d7de; stroke-width: 1; rx: 8px; }
+      .header-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 700; fill: #1f2328; }
+      .header-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #57606a; }
+      .badge-danger-bg { fill: #ffebe9; stroke: #ff8182; stroke-width: 1; rx: 4px; }
+      .badge-danger-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: 700; fill: #cf222e; }
+      
+      .card-bg { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1.2; rx: 6px; }
+      .card-header-bg { fill: #eaeef2; stroke: #d0d7de; stroke-width: 1; rx: 6px; }
+      .card-title { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 14px; font-weight: 700; fill: #0969da; }
+      .card-badge-bg { fill: #ddf4ff; stroke: #54aeff; stroke-width: 0.8; rx: 3px; }
+      .card-badge-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 600; fill: #0969da; }
+      
+      .code-txt { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 11.5px; fill: #24292f; }
+      .code-kw { fill: #cf222e; font-weight: 600; }
+      .code-ann { fill: #8250df; font-weight: 600; }
+      .code-typ { fill: #953800; }
+      .code-cmt { fill: #6e7781; font-style: italic; }
+      .code-err { fill: #cf222e; font-weight: bold; }
+      
+      .loop-box-bg { fill: #fff8c5; stroke: #d4a72c; stroke-width: 1.5; rx: 6px; }
+      .loop-box-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #7d4e00; text-anchor: middle; }
+      .loop-box-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: #633c01; text-anchor: middle; }
+      
+      .arrow-cycle { fill: none; stroke: #cf222e; stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 6 3; }
+      .arrow-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; fill: #cf222e; text-anchor: middle; }
+      
+      .stack-box-bg { fill: #ffffff; stroke: #cf222e; stroke-width: 1.5; rx: 6px; }
+      .stack-header-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 700; fill: #cf222e; }
+      .stack-frame-danger { fill: #ffebe9; stroke: #ff8182; stroke-width: 1; }
+      .stack-frame-danger-txt { font-family: "SFMono-Regular", Consolas, monospace; font-size: 11px; font-weight: 700; fill: #cf222e; text-anchor: middle; }
+      .stack-frame { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1; }
+      .stack-frame-txt { font-family: "SFMono-Regular", Consolas, monospace; font-size: 10.5px; fill: #24292f; text-anchor: middle; }
+      
+      .sol-bg { fill: #dafbe1; stroke: #4ac26b; stroke-width: 1.5; rx: 6px; }
+      .sol-badge-bg { fill: #1a7f37; rx: 3px; }
+      .sol-badge-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; fill: #ffffff; }
+      .sol-txt-bold { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; fill: #116329; }
+      .sol-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11.5px; fill: #1a7f37; }
+      .sol-code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 11px; font-weight: 600; fill: #0969da; }
+    </style>
+
+    <!-- Marcador de flecha en rojo -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#cf222e" />
+    </marker>
+  </defs>
+
+  <!-- Lienzo exterior blanco con borde suave -->
+  <rect x="1" y="1" width="1038" height="528" class="bg" />
+
+  <!-- ==================== HEADER ==================== -->
+  <rect x="25" y="18" width="180" height="20" class="badge-danger-bg" />
+  <text x="32" y="32" class="badge-danger-txt">PELIGRO CRÍTICO EN JPA</text>
+
+  <text x="25" y="56" class="header-title">Lombok @Data en Relaciones Bidireccionales: El Bucle Infinito (StackOverflowError)</text>
+  <text x="25" y="75" class="header-desc">Al combinar @Data con relaciones bidireccionales (@OneToMany / @ManyToOne), los métodos toString() se invocan recursivamente hasta saturar la pila de la JVM.</text>
+
+  <!-- ==================== COLUMNA IZQUIERDA: AUTOR ==================== -->
+  <g transform="translate(25, 92)">
+    <rect x="0" y="0" width="280" height="295" class="card-bg" />
+    <!-- Cabecera de la tarjeta -->
+    <path d="M 0 6 Q 0 0 6 0 L 274 0 Q 280 0 280 6 L 280 34 L 0 34 Z" class="card-header-bg" />
+    <text x="14" y="23" class="card-title">Autor.java</text>
+    <rect x="185" y="10" width="82" height="17" class="card-badge-bg" />
+    <text x="194" y="22" class="card-badge-txt">Lado 1 (@OneToMany)</text>
+
+    <!-- Código fuente Autor -->
+    <text x="14" y="55" class="code-txt"><tspan class="code-ann">@Entity</tspan></text>
+    <text x="14" y="73" class="code-txt"><tspan class="code-ann">@Data</tspan> <tspan class="code-cmt">// ¡Genera toString() con 'libros'!</tspan></text>
+    <text x="14" y="91" class="code-txt"><tspan class="code-kw">public class</tspan> <tspan class="code-typ">Autor</tspan> {</text>
+    <text x="26" y="109" class="code-txt"><tspan class="code-ann">@Id</tspan> <tspan class="code-kw">private</tspan> <tspan class="code-typ">Long</tspan> id;</text>
+    <text x="26" y="127" class="code-txt"><tspan class="code-kw">private</tspan> <tspan class="code-typ">String</tspan> nombre;</text>
+    <text x="26" y="145" class="code-txt"><tspan class="code-ann">@OneToMany</tspan>(mappedBy = <tspan style="fill:#0a3069;">"autor"</tspan>)</text>
+    <text x="26" y="163" class="code-txt"><tspan class="code-kw">private</tspan> <tspan class="code-typ">List</tspan>&lt;<tspan class="code-typ">Libro</tspan>&gt; libros;</text>
+    <text x="14" y="181" class="code-txt">}</text>
+
+    <!-- Detalle de lo que genera Lombok -->
+    <rect x="10" y="195" width="260" height="88" fill="#ffffff" stroke="#d0d7de" stroke-width="1" rx="4" />
+    <text x="18" y="213" style="font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:700;fill:#57606a;">Lombok genera internamente:</text>
+    <text x="18" y="232" class="code-txt" style="font-size:10.5px;"><tspan class="code-kw">public</tspan> <tspan class="code-typ">String</tspan> toString() {</text>
+    <text x="24" y="250" class="code-txt" style="font-size:10px;">  <tspan class="code-kw">return</tspan> "Autor(nombre=" + nombre</text>
+    <text x="24" y="268" class="code-txt" style="font-size:10px;">         + ", libros=" + <tspan class="code-err">this.libros</tspan> + ")";</text>
+    <text x="18" y="278" class="code-txt" style="font-size:10px;">}</text>
+  </g>
+
+  <!-- ==================== ZONA CENTRAL: BUCLE Y PILA ==================== -->
+  <!-- Flecha Superior: Autor -> Libro -->
+  <path d="M 315 145 C 410 100, 610 100, 715 145" class="arrow-cycle" marker-end="url(#arrow)" />
+  <rect x="420" y="93" width="180" height="22" fill="#ffffff" stroke="#cf222e" stroke-width="1" rx="11" />
+  <text x="510" y="108" class="arrow-label">1. autor.toString() invoca libros.toString()</text>
+
+  <!-- Caja de Advertencia Bucle Central -->
+  <g transform="translate(395, 130)">
+    <rect x="0" y="0" width="230" height="54" class="loop-box-bg" />
+    <text x="115" y="23" class="loop-box-title">⚠️ BUCLE RECURSIVO INFINITO</text>
+    <text x="115" y="42" class="loop-box-desc">autor.toString() ⇄ libro.toString()</text>
+  </g>
+
+  <!-- Flecha Inferior: Libro -> Autor -->
+  <path d="M 715 210 C 610 255, 410 255, 315 210" class="arrow-cycle" marker-end="url(#arrow)" />
+  <rect x="420" y="233" width="180" height="22" fill="#ffffff" stroke="#cf222e" stroke-width="1" rx="11" />
+  <text x="510" y="248" class="arrow-label">2. libro.toString() invoca autor.toString()</text>
+
+  <!-- Representación de la Pila de la JVM (Stack Overflow) -->
+  <g transform="translate(355, 270)">
+    <rect x="0" y="0" width="310" height="117" class="stack-box-bg" />
+    <text x="12" y="16" class="stack-header-txt">Pila de Ejecución JVM (Thread Call Stack -Xss1m)</text>
+    
+    <!-- Frames -->
+    <rect x="10" y="23" width="290" height="20" class="stack-frame-danger" rx="3" />
+    <text x="155" y="37" class="stack-frame-danger-txt">💥 java.lang.StackOverflowError (Pila Desbordada)</text>
+
+    <rect x="10" y="46" width="290" height="15" class="stack-frame" rx="2" />
+    <text x="155" y="57" class="stack-frame-txt">Frame #10420: Autor.toString()</text>
+
+    <rect x="10" y="63" width="290" height="15" class="stack-frame" rx="2" />
+    <text x="155" y="74" class="stack-frame-txt">Frame #10419: Libro.toString()</text>
+
+    <rect x="10" y="80" width="290" height="15" class="stack-frame" rx="2" />
+    <text x="155" y="91" class="stack-frame-txt">Frame #10418: Autor.toString()</text>
+
+    <text x="155" y="110" style="font-family:sans-serif;font-size:9.5px;fill:#6e7781;text-anchor:middle;">... miles de llamadas mutuas sin retorno hasta colapsar el hilo</text>
+  </g>
+
+  <!-- ==================== COLUMNA DERECHA: LIBRO ==================== -->
+  <g transform="translate(735, 92)">
+    <rect x="0" y="0" width="280" height="295" class="card-bg" />
+    <!-- Cabecera de la tarjeta -->
+    <path d="M 0 6 Q 0 0 6 0 L 274 0 Q 280 0 280 6 L 280 34 L 0 34 Z" class="card-header-bg" />
+    <text x="14" y="23" class="card-title">Libro.java</text>
+    <rect x="180" y="10" width="86" height="17" class="card-badge-bg" />
+    <text x="188" y="22" class="card-badge-txt">Lado N (@ManyToOne)</text>
+
+    <!-- Código fuente Libro -->
+    <text x="14" y="55" class="code-txt"><tspan class="code-ann">@Entity</tspan></text>
+    <text x="14" y="73" class="code-txt"><tspan class="code-ann">@Data</tspan> <tspan class="code-cmt">// ¡Genera toString() con 'autor'!</tspan></text>
+    <text x="14" y="91" class="code-txt"><tspan class="code-kw">public class</tspan> <tspan class="code-typ">Libro</tspan> {</text>
+    <text x="26" y="109" class="code-txt"><tspan class="code-ann">@Id</tspan> <tspan class="code-kw">private</tspan> <tspan class="code-typ">Long</tspan> id;</text>
+    <text x="26" y="127" class="code-txt"><tspan class="code-kw">private</tspan> <tspan class="code-typ">String</tspan> titulo;</text>
+    <text x="26" y="145" class="code-txt"><tspan class="code-ann">@ManyToOne</tspan></text>
+    <text x="26" y="163" class="code-txt"><tspan class="code-kw">private</tspan> <tspan class="code-typ">Autor</tspan> autor;</text>
+    <text x="14" y="181" class="code-txt">}</text>
+
+    <!-- Detalle de lo que genera Lombok -->
+    <rect x="10" y="195" width="260" height="88" fill="#ffffff" stroke="#d0d7de" stroke-width="1" rx="4" />
+    <text x="18" y="213" style="font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:700;fill:#57606a;">Lombok genera internamente:</text>
+    <text x="18" y="232" class="code-txt" style="font-size:10.5px;"><tspan class="code-kw">public</tspan> <tspan class="code-typ">String</tspan> toString() {</text>
+    <text x="24" y="250" class="code-txt" style="font-size:10px;">  <tspan class="code-kw">return</tspan> "Libro(titulo=" + titulo</text>
+    <text x="24" y="268" class="code-txt" style="font-size:10px;">         + ", autor=" + <tspan class="code-err">this.autor</tspan> + ")";</text>
+    <text x="18" y="278" class="code-txt" style="font-size:10px;">}</text>
+  </g>
+
+  <!-- ==================== BANNER INFERIOR: SOLUCIÓN ==================== -->
+  <g transform="translate(25, 400)">
+    <rect x="0" y="0" width="990" height="112" class="sol-bg" />
+    <rect x="14" y="10" width="190" height="18" class="sol-badge-bg" />
+    <text x="22" y="23" class="sol-badge-txt">SOLUCIÓN ARQUITECTÓNICA VÁLIDA</text>
+
+    <!-- Columna 1 de Solución -->
+    <text x="14" y="47" class="sol-txt-bold">1. Abandonar @Data en Entidades JPA</text>
+    <text x="14" y="65" class="sol-txt">Usar únicamente <tspan class="sol-code">@Getter</tspan>, <tspan class="sol-code">@Setter</tspan> y <tspan class="sol-code">@NoArgsConstructor</tspan>. NUNCA generar <tspan class="sol-code">equals() / hashCode()</tspan> sobre atributos con lazy loading.</text>
+    <text x="14" y="83" class="sol-txt">Implementar <tspan class="sol-code">equals() / hashCode()</tspan> basándose únicamente en el identificador de negocio o la clave primaria <tspan class="sol-code">id</tspan>.</text>
+
+    <!-- Columna 2 de Solución -->
+    <text x="540" y="47" class="sol-txt-bold">2. Romper el ciclo con @ToString.Exclude</text>
+    <text x="540" y="65" class="sol-txt">En el lado hijo de la relación (<tspan class="sol-code">Libro</tspan>), excluir explícitamente la referencia al padre:</text>
+    <rect x="540" y="73" width="430" height="26" fill="#ffffff" stroke="#4ac26b" stroke-width="1" rx="4" />
+    <text x="550" y="90" class="code-txt" style="font-size:11px;"><tspan class="code-ann">@ToString.Exclude</tspan> <tspan class="code-ann">@ManyToOne</tspan> <tspan class="code-kw">private</tspan> <tspan class="code-typ">Autor</tspan> autor; <tspan class="code-cmt">// ¡Ciclo roto!</tspan></text>
+  </g>
+</svg>

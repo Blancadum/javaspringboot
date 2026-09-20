@@ -1,0 +1,45 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Rutas de Bloques (ej. /fundamentos -> bloques/fundamentos.php)
+  RewriteRule ^fundamentos/?$ bloques/fundamentos.php [L,QSA]
+  RewriteRule ^core-spring-boot/?$ bloques/core-spring-boot.php [L,QSA]
+  RewriteRule ^persistencia-dtos/?$ bloques/persistencia-dtos.php [L,QSA]
+  RewriteRule ^calidad-ops/?$ bloques/calidad-ops.php [L,QSA]
+  RewriteRule ^testing/?$ bloques/testing.php [L,QSA]
+  RewriteRule ^seguridad-docker/?$ bloques/seguridad-docker.php [L,QSA]
+
+  # 2. Rutas Jerárquicas de Temas (ej. /fundamentos/json-jackson -> temas/json-jackson.php)
+  RewriteRule ^fundamentos/arquitectura-web-http/?$ temas/arquitectura-web-http.php [L,QSA]
+  RewriteRule ^fundamentos/json-jackson/?$ temas/json-jackson.php [L,QSA]
+  RewriteRule ^fundamentos/maven-lombok/?$ temas/maven-lombok.php [L,QSA]
+  RewriteRule ^fundamentos/core-spring-ioc/?$ temas/core-spring-ioc.php [L,QSA]
+
+  RewriteRule ^core-spring-boot/solid-capas/?$ temas/solid-capas.php [L,QSA]
+  RewriteRule ^core-spring-boot/rest-responseentity/?$ temas/rest-responseentity.php [L,QSA]
+  RewriteRule ^core-spring-boot/servicios-di/?$ temas/servicios-di.php [L,QSA]
+  RewriteRule ^core-spring-boot/hibernate-orm/?$ temas/hibernate-orm.php [L,QSA]
+
+  RewriteRule ^persistencia-dtos/asociaciones-consultas/?$ temas/asociaciones-consultas.php [L,QSA]
+  RewriteRule ^persistencia-dtos/dtos-repositorios/?$ temas/dtos-repositorios.php [L,QSA]
+
+  RewriteRule ^calidad-ops/validaciones-errores/?$ temas/validaciones-errores.php [L,QSA]
+  RewriteRule ^calidad-ops/logs-perfiles-swagger/?$ temas/logs-perfiles-swagger.php [L,QSA]
+
+  RewriteRule ^testing/junit5-mockito/?$ temas/junit5-mockito.php [L,QSA]
+  RewriteRule ^testing/spring-boot-test/?$ temas/spring-boot-test.php [L,QSA]
+
+  RewriteRule ^seguridad-docker/jwt-docker/?$ temas/jwt-docker.php [L,QSA]
+
+  # 3. Páginas principales sin .php
+  RewriteRule ^index/?$ index.php [L,QSA]
+  RewriteRule ^ruta/?$ ruta.php [L,QSA]
+  RewriteRule ^caso-estudio/?$ caso-estudio.php [L,QSA]
+  RewriteRule ^filosofia/?$ filosofia.php [L,QSA]
+  RewriteRule ^recursos/?$ recursos.php [L,QSA]
+
+  # 4. Fallback si el archivo o directorio real existe
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
