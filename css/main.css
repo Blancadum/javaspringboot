@@ -1145,12 +1145,14 @@ quiz-opt {
 
 /* Mobile Toggle */
 .mobile-toggle {
-  display: block;
+  display: none;
   background: none;
   border: none;
   color: var(--color-fg-default);
   font-size: 20px;
   cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
 }
 
 @media (max-width: 1100px) {
@@ -1891,3 +1893,240 @@ quiz-opt {
 .image-lightbox-close:hover {
   background: rgba(30, 36, 44, 0.94);
 }
+
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsive Layout
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Top Nav Header Mobile */
+  .top-nav {
+    padding: 6px 10px;
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-brand {
+    font-size: 12px;
+    gap: 6px;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .nav-brand .repo-link {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .nav-controls {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .search-wrapper {
+    position: relative;
+  }
+
+  .search-input {
+    width: 110px;
+    font-size: 11.5px;
+    padding: 4px 6px 4px 22px;
+  }
+
+  .search-input:focus {
+    width: 150px;
+  }
+
+  .search-icon {
+    left: 6px;
+    font-size: 11px;
+  }
+
+  .search-autocomplete-dropdown {
+    position: absolute;
+    right: 0;
+    left: auto;
+    width: calc(100vw - 20px);
+    max-width: 320px;
+    z-index: 1000;
+  }
+
+  .theme-toggle-btn {
+    padding: 3px 7px;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+
+  .progress-indicator span:first-child {
+    display: none;
+  }
+
+  .progress-bar-mini {
+    width: 36px;
+  }
+
+  /* Breadcrumbs Mobile */
+  .page-breadcrumbs {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .page-breadcrumbs .breadcrumb-current {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Content Container Mobile */
+  .main-wrapper > .content-grid {
+    padding: 10px 8px 24px 8px;
+  }
+
+  .markdown-body {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .markdown-body h1,
+  .study-section h1 {
+    font-size: 20px !important;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .markdown-body h2 {
+    font-size: 16.5px !important;
+    word-break: break-word;
+  }
+
+  .markdown-body h3 {
+    font-size: 14.5px !important;
+  }
+
+  /* Badges Mobile Wrap */
+  .badge-row {
+    gap: 6px 4px;
+    margin: 8px 0 14px 0;
+  }
+
+  .gh-badge {
+    font-size: 10.5px;
+    padding: 3px 8px;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Tables Horizontal Scroll */
+  .markdown-body table,
+  .block-summary-table,
+  .block-concepts-box table,
+  .resource-glossary-list table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 11.5px;
+  }
+
+  /* Code Blocks Mobile */
+  .markdown-body pre {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 11.5px;
+    padding: 10px 10px;
+  }
+
+  /* Quick Ref & Study Checks Stack */
+  .quick-ref-grid,
+  .study-checks-grid,
+  .resource-summary-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  /* Topic Dropdown Responsive */
+  .topic-dropdown {
+    width: 100%;
+    margin: 6px 0 12px 0;
+  }
+
+  .topic-dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    font-size: 13px;
+  }
+
+  .topic-dropdown-menu {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Figures & Iframes Mobile */
+  .context-figure iframe,
+  .block-summary-figure iframe,
+  .markdown-body iframe {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .block-summary-figure {
+    width: 100% !important;
+  }
+
+  /* Diccionario & Resource Panels */
+  .resource-panel {
+    padding: 10px;
+  }
+
+  .glossary-trigger {
+    font-size: 12.5px;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-nav {
+    padding: 5px 6px;
+  }
+
+  .nav-brand .repo-link {
+    max-width: 80px;
+  }
+
+  .progress-indicator {
+    display: none;
+  }
+
+  .search-input {
+    width: 95px;
+  }
+
+  .search-input:focus {
+    width: 130px;
+  }
+
+  .theme-toggle-btn {
+    padding: 2px 5px;
+    font-size: 11px;
+  }
+
+  .gh-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+

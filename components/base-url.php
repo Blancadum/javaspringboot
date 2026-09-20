@@ -1,4 +1,11 @@
 <?php
+  global $base_url, $web_root;
+
+  if (!isset($base_url) && isset($GLOBALS['base_url'])) {
+    $base_url = $GLOBALS['base_url'];
+    $web_root = $GLOBALS['web_root'] ?? '';
+  }
+
   if (!isset($base_url)) {
     $project_root = str_replace('\\', '/', realpath(dirname(__DIR__)) ?: dirname(__DIR__));
     $script_file = str_replace('\\', '/', realpath($_SERVER['SCRIPT_FILENAME'] ?? '') ?: ($_SERVER['SCRIPT_FILENAME'] ?? ''));
@@ -20,6 +27,8 @@
     }
 
     $base_url = rtrim($web_root, '/') . '/';
+    $GLOBALS['base_url'] = $base_url;
+    $GLOBALS['web_root'] = $web_root;
   }
 ?>
 
