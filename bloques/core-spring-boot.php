@@ -61,7 +61,7 @@
             </div>
 
             <figure class="block-summary-figure">
-              <img src="../img/FASE2.png" alt="Fase 2: Arquitectura Limpia y Core de Spring Boot">
+              <img src="<?php echo $base_url; ?>img/FASE2.png" alt="Fase 2: Arquitectura Limpia y Core de Spring Boot">
               <figcaption>Figura 3: Diseño en capas y Core de Spring Boot</figcaption>
             </figure>
         <div class="block-quick-ref" style="margin: 30px 0; padding: 20px; background: var(--color-canvas-subtle); border-left: 5px solid var(--color-accent); border-radius: 0 8px 8px 0;">

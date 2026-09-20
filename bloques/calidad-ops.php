@@ -59,7 +59,7 @@
             </div>
 
             <figure class="block-summary-figure">
-              <img src="../img/FASE4.png" alt="Fase 4: Calidad, Perfiles y Operaciones">
+              <img src="<?php echo $base_url; ?>img/FASE4.png" alt="Fase 4: Calidad, Perfiles y Operaciones">
               <figcaption>Figura 5: Calidad, Perfiles y Operaciones</figcaption>
             </figure>
 

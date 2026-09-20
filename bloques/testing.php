@@ -56,7 +56,7 @@
         </div>
 
         <figure class="block-summary-figure">
-          <img src="../img/FASE5.png" alt="Fase 5: Testing Automatizado">
+          <img src="<?php echo $base_url; ?>img/FASE5.png" alt="Fase 5: Testing Automatizado">
           <figcaption>Figura 6: Contenido del Bloque 5 — Pruebas unitarias con JUnit y Mockito, e integración con Spring Boot Test.</figcaption>
         </figure>
 

@@ -117,7 +117,7 @@
           <div class="block-intro-main">
             <div class="block-summary-card">
               <figure class="block-summary-figure">
-                <img src="img/ARQ-HEX.png" alt="Arquitectura Concéntrica y Hexagonal: Presentación, Negocio y Datos">
+                <img src="<?php echo $base_url; ?>img/ARQ-HEX.png" alt="Arquitectura Concéntrica y Hexagonal: Presentación, Negocio y Datos">
                 <figcaption>Figura 1: Representación concéntrica del software. El Dominio y las reglas de Negocio ocupan el núcleo, protegidos del exterior por capas concéntricas.</figcaption>
               </figure>
             </div>

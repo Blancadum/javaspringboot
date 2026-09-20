@@ -1,30 +1,25 @@
 <?php
   if (!isset($base_url)) {
-    $script_path = str_replace(chr(92), '/', $_SERVER['SCRIPT_NAME'] ?? $_SERVER['PHP_SELF']);
-    $uri_path = str_replace(chr(92), '/', strtok($_SERVER['REQUEST_URI'] ?? '', '?'));
-    $resolved_path = $uri_path;
+    $project_root = str_replace('\\', '/', realpath(dirname(__DIR__)) ?: dirname(__DIR__));
+    $script_file = str_replace('\\', '/', realpath($_SERVER['SCRIPT_FILENAME'] ?? '') ?: ($_SERVER['SCRIPT_FILENAME'] ?? ''));
+    $script_name = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? $_SERVER['PHP_SELF'] ?? '');
 
-    if (empty($resolved_path) || $resolved_path === '/') {
-      $resolved_path = $script_path;
+    $rel_file = '';
+    if (!empty($script_file) && strpos($script_file, $project_root) === 0) {
+      $rel_file = substr($script_file, strlen($project_root));
     }
 
-    $target_path = (strpos($resolved_path, 'guia-estudio') !== false) ? $resolved_path : $script_path;
-    $pos = strpos($target_path, 'guia-estudio');
-
-    if ($pos !== false) {
-      $sub_path = trim(substr($target_path, $pos + strlen('guia-estudio')), '/');
-      if (empty($sub_path)) {
-        $base_url = '';
-      } else {
-        $parts = array_values(array_filter(explode('/', $sub_path), fn($part) => $part !== ''));
-        if (!empty($parts) && preg_match('/\.php$/i', $parts[count($parts) - 1])) {
-          array_pop($parts);
-        }
-        $depth = count($parts);
-        $base_url = ($depth > 0) ? str_repeat('../', $depth) : '';
-      }
+    $web_root = '';
+    if (!empty($rel_file) && strlen($script_name) >= strlen($rel_file) && substr($script_name, -strlen($rel_file)) === $rel_file) {
+      $web_root = substr($script_name, 0, strlen($script_name) - strlen($rel_file));
     } else {
-      $base_url = '';
+      $web_root = rtrim(dirname($script_name), '/');
+      if ($web_root === '/' || $web_root === '\\') {
+        $web_root = '';
+      }
     }
+
+    $base_url = rtrim($web_root, '/') . '/';
   }
 ?>
+

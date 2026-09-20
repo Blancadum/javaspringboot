@@ -5,10 +5,9 @@ $current_script_path = $_SERVER['SCRIPT_NAME'] ?? '';
 $request_path = str_replace('\\', '/', $_SERVER['REQUEST_URI'] ?? $_SERVER['SCRIPT_NAME'] ?? '');
 $request_path = preg_replace('/\?.*$/', '', $request_path);
 $request_path = trim($request_path, '/');
-if (strpos($request_path, 'guia-estudio') !== false) {
-  $pos = strpos($request_path, 'guia-estudio');
-  $request_path = substr($request_path, $pos + strlen('guia-estudio'));
-  $request_path = trim($request_path, '/');
+$clean_web_root = trim($web_root ?? '', '/');
+if (!empty($clean_web_root) && strpos($request_path, $clean_web_root) === 0) {
+  $request_path = trim(substr($request_path, strlen($clean_web_root)), '/');
 }
 $uri_segments = array_values(array_filter(explode('/', $request_path), fn($part) => $part !== ''));
 $current_slug = !empty($uri_segments) ? end($uri_segments) : preg_replace('/\.php$/i', '', $current_script);

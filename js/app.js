@@ -388,22 +388,12 @@
     let SEARCH_DATABASE = [];
 
     const getBaseUrl = () => {
-      const path = window.location.pathname;
-      const pos = path.indexOf('/guia-estudio');
-      if (pos !== -1) {
-        let rel = path.substring(pos + '/guia-estudio'.length);
-        while (rel.endsWith('/')) {
-          rel = rel.slice(0, -1);
-        }        if (!rel) return '';
-        const parts = rel.split('/').filter(Boolean);
-        let depth = parts.length;
-        if (parts.length > 0 && parts.at(-1).endsWith('.php')) {
-          depth -= 1;
-        }
-        return depth > 0 ? '../'.repeat(depth) : '';
+      if (typeof window.BASE_URL !== 'undefined') {
+        return window.BASE_URL;
       }
       return '';
-    }
+    };
+
 
     const loadSearchDatabase = async () => {
       try {

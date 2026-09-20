@@ -7,6 +7,7 @@
   <title>Guía de Estudio — Spring Boot, Arquitectura y Ecosistema Java</title>
   <link rel="stylesheet" href="<?php echo $base_url; ?>css/github-markdown.css">
   <link rel="stylesheet" href="<?php echo $base_url; ?>css/main.css">
+  <script>window.BASE_URL = "<?php echo $base_url; ?>";</script>
 </head>
 <body>
   <!-- Top Reading Progress Indicator Line -->

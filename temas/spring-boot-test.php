@@ -138,7 +138,7 @@ logging.level.org.hibernate.orm.jdbc.bind=TRACE</code></pre>
                 Aprenderemos a proteger la API con JWT, a empaquetarla con Docker y a preparar la infraestructura para ejecutar la aplicación en entornos reales con fiabilidad.
               </p>
               <figure class="block-summary-figure">
-                <img src="../img/FASE6.png" alt="Fase 6: Seguridad y Despliegue">
+                <img src="<?php echo $base_url; ?>img/FASE6.png" alt="Fase 6: Seguridad y Despliegue">
                 <figcaption>Figura 7: Contenido del Bloque 6 — Autenticación y autorización mediante JWT y contenedorización de aplicaciones con Docker.</figcaption>
               </figure>
             </div>

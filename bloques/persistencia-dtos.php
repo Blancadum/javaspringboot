@@ -62,7 +62,7 @@
             </div>
 
             <figure class="block-summary-figure">
-              <img src="../img/FASE3.png" alt="Fase 3: Persistencia Avanzada y DTOs">
+              <img src="<?php echo $base_url; ?>img/FASE3.png" alt="Fase 3: Persistencia Avanzada y DTOs">
               <figcaption>Figura 4: Persistencia Avanzada y DTOs</figcaption>
             </figure>
         <div class="block-quick-ref">

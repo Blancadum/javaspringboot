@@ -64,7 +64,7 @@
             </div>
 
             <figure class="block-summary-figure">
-              <img src="../img/FASE1.png" alt="Fase 1: Fundamentos">
+              <img src="<?php echo $base_url; ?>img/FASE1.png" alt="Fase 1: Fundamentos">
               <figcaption>Figura 1: Fundamentos de Spring</figcaption>
             </figure>
 
